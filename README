@@ -1,0 +1,26 @@
+A Turn-Key app
+
+# What's a Turn-key app?
+
+The app folder can be copied to anywhere and the app just works.
+That means, the app doesn't depend on where it is installed.
+Just copy and run!
+
+# How to implement a Turn-key app?
+
+First, the app's executable file must be able to find the dependency .so files.
+This can be achieved by RPATH embedded in the elf format exe file.
+
+Second, the app must be able to find its config file(s) based on where the app exe file's location. 
+This can be done by getting the exe file's absouate path by itself. On Linux, /proc/self/exe is always a link to the absolute path of the exe file. So the exe can read it and get the file's path.
+
+# A Turn-key app's basic layout
+
+myapp/bin/
+myapp/bin/app
+myapp/conf/
+myapp/conf/app.xml
+myapp/lib/
+myapp/lib/libfoo.so
+
+Then, you can copy the "myapp" dir anywhere you want, and the app runs properly by itself.
